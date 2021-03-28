@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const Comment = new Schema({
-    userId: { type: Number, required: true },
+    userId: { type: Number },
     postId: { type: String, required: true },
     content: { type: Number, required: true },
 });
