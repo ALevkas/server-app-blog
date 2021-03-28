@@ -33,6 +33,17 @@ class postController {
             res.json(post.comments);
         } catch (e) {
             console.log(e);
+            res.status(400).json({ message: 'Posts comment error' });
+        }
+    }
+
+    async getComment(req, res) {
+        try {
+            const { id } = req.body;
+            const comment = await Comment.findOne({ _id: id });
+            res.json(comment);
+        } catch (e) {
+            console.log(e);
             res.status(400).json({ message: 'Posts comments error' });
         }
     }
