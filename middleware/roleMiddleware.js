@@ -16,15 +16,13 @@ module.exports = function (roles) {
             }
             const { roles: userRoles } = token.verify(token, secret);
             let hasRole = false;
-            userRoles.forEach(role => {
-                if (roles.includes(role) {
+            userRoles.forEach((role) => {
+                if (roles.includes(role)) {
                     hasRole = true;
                 }
             });
             if (!hasRole) {
-                return res
-                    .status(400)
-                    .json({ message: 'У вас нет доступа' });
+                return res.status(400).json({ message: 'У вас нет доступа' });
             }
             next();
         } catch (e) {
